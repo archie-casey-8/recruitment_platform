@@ -12,7 +12,7 @@ class MyWindow:
         self.f_n = Entry(width= '20', bd = '4')
         self.l_n = Entry(width= '20', bd = '4')
         self.p_n = Entry(width= '20', bd = '4')
-        self.m_i = Entry(width= '50', bd = '4')
+        self.m_i = Text(width= '50', bd = '4', height = '4')
         self.first_name.place(x = 50, y = 50)
         self.f_n.place(x=150, y = 50)
         self.last_name.place(x = 50, y= 100)
