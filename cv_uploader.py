@@ -1,6 +1,6 @@
 from tkinter import filedialog
 from tkinter import *
-from menu_page import *
+
 
 
 class MyWindow:
@@ -23,8 +23,8 @@ class MyWindow:
         self.m_i.place(x = 50 ,y = 230)
         self.open = Button(win, text='Open', width = '7', height = '1', bd = '3', command= self.UploadAction)
         self.upload = Button(win, text = 'Upload', width = '7', height = '1', bd = '3')
-        self.home = Button(win, text = 'Return back to\n home screen', width = '13', height = '2',activebackground = 'black', activeforeground = 'red', bd = '3', relief = 'raised', command= menu)
-        self.exit = Button(win, text = 'EXIT', width = '9', height = '2',activebackground = 'black', activeforeground = 'red', bd = '10', relief = 'raised', command= window.destroy)
+        self.home = Button(win, text = 'Return back to\n home screen', width = '13', height = '2',activebackground = 'black', activeforeground = 'red', bd = '3', relief = 'raised')
+        self.exit = Button(win, text = 'EXIT', width = '8', height = '2',activebackground = 'black', activeforeground = 'red', bd = '10', relief = 'raised', command= window.destroy)
         self.open.place(x= 50, y= 600)
         self.upload.place(x= 200, y= 600)
         self.home.place(x= 300, y= 600)
