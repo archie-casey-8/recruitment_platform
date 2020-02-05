@@ -32,12 +32,15 @@ layout = html.Div(
      Input("second_name_input", "value"),
      Input('button', 'n_clicks')],
 )
-def save_details(first_name_input,second_name_input):
+def save_details(first_name_input, second_name_input, n_clicks):
 
-    with open('database.csv', mode='w') as database_file:
-        database_file = csv.writer(database_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-        database_file.writerow([first_name_input])
-    return first_name_input + second_name_input
+    if n_clicks is None:
+        return None
+    else:
+        with open('database.csv', mode='a') as database_file:
+            database_file = csv.writer(database_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+            database_file.writerow([first_name_input, second_name_input])
+
 
 def update_output(n_clicks, value):
     return 'The input value was "{}" and the button has been clicked {} times'.format(
