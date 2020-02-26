@@ -73,7 +73,7 @@ layout = html.Div(
      Input('button', 'n_clicks')],
 )
 #this is what decides what is saved to the database
-def save_details(first_name_input, second_name_input, phone_number_input,  email_address_input, n_clicks, upload_data):
+def save_details(first_name_input, second_name_input, phone_number_input,  email_address_input,upload_data, n_clicks):
 
     if n_clicks is None:
         return None
