@@ -1,9 +1,10 @@
-from dash.dependencies import Input, Output
 import dash_html_components as html
 import dash_core_components as dcc
 import csv
+import base64
 
 from app import app
+from dash.dependencies import Input, Output
 
 layout = html.Div(
     [
@@ -53,8 +54,8 @@ layout = html.Div(
                 'textAlign': 'center',
                 'margin': '10px'
             },
-            # Allow multiple files to be uploaded
-            multiple=True
+            # does not allow multiple files to be uploaded
+            multiple=False
         ),
         #This is the submit button in which it uploads the data inputted
         html.Button('Submit', id='button'),
@@ -73,14 +74,16 @@ layout = html.Div(
      Input('button', 'n_clicks')],
 )
 #this is what decides what is saved to the database
-def save_details(first_name_input, second_name_input, phone_number_input,  email_address_input,upload_data, n_clicks):
+def save_details(first_name_input, second_name_input, phone_number_input,  email_address_input,contents, n_clicks):
 
     if n_clicks is None:
         return None
     else:
+        decoded = base64.b64decode(contents.encode('latin1').decode('cp1251'))
+
         with open('database.csv', mode='a') as database_file:
             database_file = csv.writer(database_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-            database_file.writerow([first_name_input, second_name_input, phone_number_input, email_address_input, upload_data])
+            database_file.writerow([first_name_input, second_name_input, phone_number_input, email_address_input, decoded])
 
 
 def update_output(n_clicks, value):
