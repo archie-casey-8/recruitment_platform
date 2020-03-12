@@ -74,14 +74,14 @@ layout = html.Div(
      Input('button', 'n_clicks')],
 )
 #this is what decides what is saved to the database
-def save_details(first_name_input, second_name_input, phone_number_input,  email_address_input,contents, n_clicks):
+def save_details(first_name_input, second_name_input, phone_number_input, email_address_input,contents, n_clicks):
 
     if n_clicks is None:
         return None
     else:
         decoded = base64.b64decode(contents.encode('latin1').decode('cp1251'))
 
-        with open('database.csv', mode='a') as database_file:
+        with open('database/CV_uploader_table.csv', mode='a') as database_file:
             database_file = csv.writer(database_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
             database_file.writerow([first_name_input, second_name_input, phone_number_input, email_address_input, decoded])
 
