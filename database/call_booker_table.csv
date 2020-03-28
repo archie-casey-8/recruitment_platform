@@ -1,0 +1,11 @@
+FirstName, LastName, PhoneNumber, EmailAddress, DateBook, TimeBooked
+
+archie,casey,07841450239,archiecasey8@gmail.com,2017-08-09
+,,,,2017-08-25 23:59:59
+a,,,,2017-08-25 23:59:59
+a,b,,,2017-08-25 23:59:59
+a,b,c,,2017-08-25 23:59:59
+a,b,c,d,2017-08-25 23:59:59
+a,b,c,d,2017-08-24
+a,b,c,d,2017-08-24
+lol,bob,tim,noon,2020-03-27
